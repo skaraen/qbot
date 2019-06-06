@@ -24,6 +24,8 @@ let logModel = mongoose.model('log', logSchema);
 let input_memory, output_memory, flag = 0;
 var pf = false;
 
+app.use(express.static('.'))
+
 app.post('/query', function (req, res) {
     var intentName = req.body.queryResult.intent.displayName;
     if (intentName === 'AskWeather') {
