@@ -13,7 +13,9 @@ let apiKey = 'a3fbb9fd55b7f3d9a02c6ed9418a6fc7';
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))
 
-const url = 'mongodb://localhost/qbot';
+const url = process.env.MONGO_URL;
+console.log(process.env)
+console.log(url);
 
 mongoose.connect(url, { useNewUrlParser: true })
     .then(res => console.log("Connected to DB"))
